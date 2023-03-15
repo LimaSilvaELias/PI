@@ -8,7 +8,7 @@
         $host = "localhost";
         $user = "root";
         $pass = "";
-        $dbname = "bd16";
+        $dbname = "pi";
 
         $conn = mysqli_connect($host, $user, $pass, $dbname);
 ?>
@@ -83,24 +83,23 @@
               <br>
               CPF:<br>
               <input type="text" name="cpf" maxlength="14" placeholder="000.000.00-00"><br>
-              <p>
-                <font size="3">Data Nascimento</font>
-              </p>
+              
+              Data Nascimento:<br>
               <input type="datetime" name="datanascimento" max="8" placeholder="00 / 00 / 0000">
             </div>
-            <br>
+            
             <div>
-              Data Consulta
+              Data Consulta:
               <br>
               
                 
-        <label for="dtconsulta">dtconsulta:</label>
+        
         <div class="calendar">
             <span class="calendar-icon"> <input type="date" id="data" name="dtconsulta" ></span>
         </div>
         <!-- <input type="date" id="data" name="dtconsulta" readonly value=""> -->
-
-        <label for="hora_inicio">Horário:</label>
+  
+        <label for="hora_inicio">Horário da Consulta:</label><br>
         <select name="hora_inicio" required>
             <option value="">Selecione um horário</option>
             <option value="09:00:00">09:00</option>
@@ -120,38 +119,6 @@
         </select>
     
               <br><br>
-              <select name="especialidade" id="especialidade">
-                <option selected>Especialidade</option>
-                <option value="pediatra">Pediatra</option>
-                <option value="urologista">Urologista</option>
-                <option value="ortopedista">Ortopedista</option>
-              </select>
-
-              <select name="exames" id="exames">
-                <option selected>Exames</option>
-                <option value="hemograma">Hemograma</option>
-                <option value="glicemia">Glicemia</option>
-                <option value="ureia e creatina">Ureia e Creatina</option>
-                <option value="urina">Urina</option>
-              </select>
-            </div>
-            <br>
-            <div>
-              Possui Enfermidade?
-              <br>
-              <input type="radio" name="um" value="Sim" id="sim">Sim
-              <br>
-              <input type="radio" name="um" value="Nao" id="nao">Não
-              <br>
-              <select name="qual" id="qual">
-                <option selected>Se sim. Qual?</option>
-                <option>Seila</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Digite Aqui</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
             <div class="">
               <div class="">
                 <input class="submit" type="submit" name="agendar" value="Agendar">
