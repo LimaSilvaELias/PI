@@ -1,0 +1,172 @@
+
+/* Transição suave  de paginas */
+/* Transição de cima pra baixo */
+.animedown{
+  animation: animacao 1s ease 0s 1 normal forwards;
+  
+  height: fit-content;
+  border-radius: 50px;
+  
+}
+@keyframes animacao {
+	0% {
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+}
+/* Transição de baixo pra cima */
+.animeup{
+  animation: animacao2 1s ease 0s 1 normal forwards;
+  
+  height: fit-content;
+  border-radius: 50px;
+}
+@keyframes animacao2 {
+	0% {
+		opacity: 0;
+		transform: translateY(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+/* Animação dos links */
+/* .nav-link{
+  opacity: 70%;
+} */
+a:hover{
+  animation: pulse 0.4s forwards ;
+}
+@keyframes pulse {
+  100% {
+    font-weight: bold;
+  }
+}
+/* Animação dos cards */
+.animecards:hover{
+  animation: cards 0.5s forwards ;
+}
+@keyframes cards {
+	100% {
+		opacity: 1;
+		transform: translatey(-25px);
+	}
+}
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Botão com animação de certinho  */
+.submit {
+    width: 120px;
+    height: 40px;
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px;
+    background-color: transparent;
+    transition: all ease 0.5s;
+    }
+    
+.active1 {
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-left-color: transparent;
+    animation: rotate 1.4s ease 0.5s infinite;
+    
+    }
+    
+@keyframes rotate{
+    0% {
+      transform: rotate(360deg);
+    }
+    }
+    
+.sucess{
+    position: relative;
+    background: url(../Img/check-lg.svg) no-repeat;
+    background-size: cover;
+    animation: bounce .3s ease-in 0.5s;
+    }
+    
+@keyframes bounce{
+    0% {
+      transform: scale(0.9);
+    }
+    }
+    
+.sucess:before{
+    content: '';
+    position: absolute;
+    background: url(../Img/check-lg.svg) no-repeat;
+    background: auto;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 31px;
+    height: 31px;
+    Line-height: 31px;
+    top: 8px;
+    }
+
+    .reset {
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        border: 2px solid red;
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        line-height: 20px;
+        box-sizing: border-box;
+        border-radius: 50px;
+        background-color: transparent;
+        outline: none;
+        transition: all ease 0.1s;
+      }
+    
+      .active2 {
+        font-size: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border-left-color: transparent;
+        animation: rotate 1.4s ease 0.5s infinite;
+      }
+    
+      @keyframes rotate{
+        0% {
+          transform: rotate(360deg);
+        }
+      }
+    
+      .sucess2{
+        position: relative;
+        background: url(../img/check-solid.svg) no-repeat; 
+        animation: bounce .3s ease-in 0.5s;
+      }
+     
+      @keyframes bounce{
+        0% {
+          transform: scale(0.9);
+        }
+      }
+    
+      .sucess2:before{
+        content: '';
+        background: url(../img/check-solid.svg) no-repeat; 
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 31px;
+        height: 31px;
+        Line-height: 31px;
+        top: 8px;
+      }
