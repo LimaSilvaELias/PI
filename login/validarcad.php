@@ -37,7 +37,7 @@ mysqli_query($conn, $insercao);
 
 mysqli_close($conn);
 
-header('Location: perfil.php');
+header('Location: ../usuario/perfil.html');
 exit();
 
 
