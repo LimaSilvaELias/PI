@@ -2,9 +2,11 @@
 session_start();
 include_once('conexao.php');
 ?>
+
     <!DOCTYPE html>
     <html lang="en">
-    <head>
+    <head> 
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +18,9 @@ include_once('conexao.php');
         <script src="valida.js"></script>
     </head>
     <body class="bgbluehite">
+    <div class="d-flex animedown"> 
+        <iframe src="../navegador.html" class="navegador" id="meuiframe"></iframe>
+    </div>
         <br><br>
     
     <br>
@@ -67,7 +72,9 @@ include_once('conexao.php');
         <br>
        
         <footer><p style="color: #808080;">&copy; Copyritgh 
-            <script>var year=new Date(); document.writeln(+year.getUTCFullYear());</script> - Back-End - SENAC - Curso técnico em Informática</p></footer>
+            <script>var year=new Date(); document.writeln(+year.getUTCFullYear());</script> - Back-End - SENAC - Curso técnico em Informática</p>]
+            <iframe src="../footer.html" class="rodape" ></iframe>
+        </footer>
 
     </body>
     </html>
