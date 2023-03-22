@@ -60,7 +60,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 .direita{
     display: flex;
@@ -76,9 +75,34 @@ body{
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 200px 200px 200px;
+    grid-template-rows: 220px 220px 220px;
 }
 
+.darkgrade{
+    background-color: #212121;
+    color: rgb(234, 234, 234);
+}
+.darkgrade i{
+    justify-content: left;
+    align-items: center;
+    background-color: #f0f0f0;
+    color: #212121;
+    margin: 7px;
+    padding: 10px;
+    border-radius: 3px;
+}
+.infoperfil{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 3fr 2fr 3fr;
+    grid-template-rows: 200px ;
+}
+.consulta{
+    border-width: 5px;
+    border-color: #212121;
+    border-radius: 2px;
+
+}
 
 
 .navegador{
