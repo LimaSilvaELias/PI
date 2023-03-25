@@ -5,12 +5,10 @@
         // $hora_inicio   = filter_input(INPUT_POST, 'hora_inicio', FILTER_SANITIZE_STRING);
         // $disponivel   = filter_input(INPUT_POST, 'disponivel', FILTER_SANITIZE_STRING);
         // Conexão com o banco de dados MySQL
-        $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $dbname = "pi";
+include_once('../login/conexao.php');
+$cpf= $_SESSION['cpf'];
+$pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
 
-        $conn = mysqli_connect($host, $user, $pass, $dbname);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -82,7 +80,7 @@
               <input type="mail" name="email" maxlength="40" placeholder="usuario@email.com">
               <br>
               CPF:<br>
-              <input type="text" name="cpf" maxlength="14" placeholder="000.000.00-00"><br>
+              <input type="text" name="cpf" maxlength="14" value="<?php  echo $pontuacao_cpf ?>" readonly><br>
               
               Data Nascimento:<br>
               <input type="datetime" name="datanascimento" max="8" placeholder="00 / 00 / 0000">

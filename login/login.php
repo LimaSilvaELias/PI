@@ -2,6 +2,7 @@
 session_start();
 include_once('conexao.php');
 
+
 // Verifique se o formulário de login foi enviado
 if(isset($_POST['login'])) {
 
@@ -10,17 +11,24 @@ if(isset($_POST['login'])) {
     $senha = $_POST['senha'];
 
     // Verifique se o nome de usuário ou e-mail existe no banco de dados
-    $consulta = "SELECT * FROM logins WHERE email = '$email'";
+    $consulta = "SELECT * FROM cliente WHERE email = '$email'";
     $resultado = mysqli_query($conn, $consulta);
+
 
     if (mysqli_num_rows($resultado) > 0) {
         // validação da senha 
-        $linha = mysqli_fetch_assoc($resultado);
-        if(password_verify($senha, $linha['senha'])) {
+        $objeto = mysqli_fetch_assoc($resultado);
+        if(password_verify($senha, $objeto['senha'])) {
             // Se a senha bater com o email será redirecionado para a pag perfil 
-            $_SESSION['id'] = $linha['id'];
-            $_SESSION['nome'] = $linha['nome'];
-            header('Location: perfil.php');
+            $_SESSION['nome'] = $objeto['nome'];
+            $_SESSION['cpf'] = $objeto['cpf'];
+            $_SESSION['email'] = $objeto['email'];
+            
+
+            $_SESSION['token'] = $objeto['token'];
+
+            
+            header('Location: ../usuario/perfil.php');
             exit();
         } else {
             echo "Senha incorreta. Tente novamente.";
@@ -31,6 +39,7 @@ if(isset($_POST['login'])) {
 }
 
 mysqli_close($conn);
+
 ?>
 
 <!-- Código HTML para o formulário de login -->

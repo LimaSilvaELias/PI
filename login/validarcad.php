@@ -6,11 +6,11 @@ include_once('conexao.php');
 
 //CONVERTENDO OS CAMPOS PARA O BD PHP
 $nome = $_POST['nome'];
-$usuario = $_POST['usuario'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $cpf = $_POST['cpf'];
 $cpf_sem_pontuacao = str_replace(array('.', '-'), '', $cpf);
+
 
 // conectar ao banco de dados usando a função mysqli_connect().
 
@@ -21,23 +21,27 @@ if (mysqli_connect_errno()) {
 }
 
 // Verifique se o nome de usuário ou o endereço de e-mail já estão sendo usados por outro usuário no banco de dados
-$consulta = "SELECT * FROM logins WHERE email = '$email'";
+$consulta = "SELECT * FROM cliente WHERE email = '$email'";
 $resultado = mysqli_query($conn, $consulta);
 
 if (mysqli_num_rows($resultado) > 0) {
-    echo "O endereço de e-mail já esta em uso. Por favor, escolha outro.";
+    echo "O endereço de e-mail já esta em uso. Por favor entre ou escolha outro.";
     exit();
 }
+$codigo = $_SESSION['codigo'];
+$token = hash('sha256', $codigo);
 
-// Criptografe a senha usando a função password_hash() e insira os dados do usuário na tabela "logins" do banco de dados
+
+
+// Criptografe a senha usando a função password_hash() e insira os dados do usuário na tabela "cliente" do banco de dados
 $senha_criptografada = password_hash($senha, PASSWORD_DEFAULT);
 
-$insercao = "INSERT INTO logins (nome, usuario, email, senha, cpf) VALUES ('$nome','$usuario', '$email', '$senha_criptografada','$cpf_sem_pontuacao')";
+$insercao = "INSERT INTO cliente (nome, email, senha, cpf, token) VALUES ('$nome', '$email', '$senha_criptografada','$cpf_sem_pontuacao','$token')";
 mysqli_query($conn, $insercao);
 
 mysqli_close($conn);
 
-header('Location: ../usuario/perfil.html');
+header('Location: ../usuario/perfil.php');
 exit();
 
 

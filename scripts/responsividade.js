@@ -27,12 +27,12 @@ function nav() {
 };
 
 function formularios() {
-    if (document.body.clientWidth < 600) {    
-        $(".bodydiv").addClass("mobilesz");
-        
+    if (document.body.clientWidth < 1140) {   
+        $(".ghostDiv").removeClass("verticalDiv");
+        $(".ghostDiv").addClass("horizontalDiv m-3");
     } else {    
-        $(".bodydiv").removeClass("mobilesz");
-        
+        $(".ghostDiv").addClass("verticalDiv");
+        $(".ghostDiv").removeClass("horizontalDiv m-3");
     }
 };
 
