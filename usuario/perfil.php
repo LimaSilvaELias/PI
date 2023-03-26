@@ -29,14 +29,15 @@ if (!isset($_SESSION['token'])) {
 $token = $_SESSION['token'];
 $nome = $_SESSION['nome'];
 $email= $_SESSION['email'];
+$codigo= $_SESSION['codigo'];
+
 
 $cpf= $_SESSION['cpf'];
 $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
 
 $query = "SELECT * FROM cliente WHERE token='$token'";
 
-mysqli_close($conn);
-?>
+?><br><br>
     <div class="boxUniversal ">
         <div class="container-fluid animeup">
             <div class="boxUniversal infoperfil">
@@ -71,104 +72,41 @@ mysqli_close($conn);
                 </div>
             </div> 
             <br>
-            <div class="grade center darkgrade consulta">
-                <i class="">
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
-                <i class="">
-                    
-                    nome: <br><br>
-                    consulta: <br>
-                    data: <br>
-                    horario: <br>
-                    <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                </i>
+            <div class='grade center darkgrade consulta'>
+                    <?php 
+                    // Query SQL
+                        $query = "SELECT * FROM consulta WHERE token='$token'";
 
+                        // Executar a query e obter o resultado
+                        $result = mysqli_query($conn, $query);
+                        
+                        
+
+                        // Loop pelos resultados
+                        while ($row = mysqli_fetch_assoc($result,)) {
+                            // Imprime o valor de cada coluna
+                            echo "
+                                    <i>
+                                    Nome: " . $row['nome'] . "<br>
+                                    Email: " . $row['email'] . "<br>
+                                    CPF: " . $row['cpf'] . "<br>
+                                    Data de Nascimento: " . $row['datanascimento'] . "<br>
+                                    Data e hora da consulta: <br>" . $row['dataconsulta'] . "<br>
+                                    </i>
+                                ";
+                            // E assim por diante...
+                        } 
+                        // Fechar a conexão com o banco de dados
+                        mysqli_close($conn);
+
+                       
+                    // nome: <br><br>
+                    // consulta: <br>
+                    // data: <br>
+                    // horario: <br>
+                    // <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
+                
+                    ?>
             </div>
             <div class="verticalDiv"></div>
         </div>

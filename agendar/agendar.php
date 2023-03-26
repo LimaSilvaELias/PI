@@ -1,11 +1,7 @@
-<?php
-        session_start();
-
-        // $dtconsulta = filter_input(INPUT_POST, 'dtconsulta', FILTER_SANITIZE_STRING); 
-        // $hora_inicio   = filter_input(INPUT_POST, 'hora_inicio', FILTER_SANITIZE_STRING);
-        // $disponivel   = filter_input(INPUT_POST, 'disponivel', FILTER_SANITIZE_STRING);
-        // Conexão com o banco de dados MySQL
+<?php  
+session_start();
 include_once('../login/conexao.php');
+$token= $_SESSION['token'];
 $cpf= $_SESSION['cpf'];
 $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
 
@@ -80,7 +76,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
               <input type="mail" name="email" maxlength="40" placeholder="usuario@email.com">
               <br>
               CPF:<br>
-              <input type="text" name="cpf" maxlength="14" value="<?php  echo $pontuacao_cpf ?>" readonly><br>
+              <input type="text" name="cpf" maxlength="14" placeholder="000.000.000-00"><br>
               
               Data Nascimento:<br>
               <input type="datetime" name="datanascimento" max="8" placeholder="00 / 00 / 0000">
@@ -93,7 +89,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
                 
         
         <div class="calendar">
-            <span class="calendar-icon"> <input type="date" id="data" name="dtconsulta" ></span>
+            <span class="calendar-icon"> <input type="date" id="dtconsulta" name="dtconsulta" ></span>
         </div>
         <!-- <input type="date" id="data" name="dtconsulta" readonly value=""> -->
   
@@ -132,31 +128,39 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
           </form>
           <center>
           <?php
-      
-        
+          
         // Verifica se o formulário foi enviado
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Recupera as informações do formulário
-            $dtconsulta = $_POST["dtconsulta"];
-            $hora_inicio = $_POST["hora_inicio"];
+          // Recupera as informações do formulário
+          $nome = $_POST['nome'];
+          $email = $_POST['email'];
+          $cpf = $_POST['cpf'];
+          $cpf_sem_pontuacao = str_replace(array('.', '-'), '', $cpf);
+          $datanascimento = $_POST['datanascimento'];
 
-            // Verifica se o horário está disponível
-            $sql = "SELECT * FROM horario WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio' AND disponivel = 1";
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                $sql = "UPDATE horario SET disponivel = 2 WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio';";
-                echo"$sql  ";
+          $dtconsulta = $_POST["dtconsulta"];
+          $hora_inicio = $_POST["hora_inicio"];
+          $datahora=$dtconsulta." ".$hora_inicio;
+          
+          // Verifica se o horário está disponível
+          $sql = "SELECT * FROM horario WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio' AND disponivel = 1";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+              // Horário está disponível, atualiza a disponibilidade
+              $sql = "UPDATE horario SET disponivel = 2 WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio';";
+              mysqli_query($conn, $sql);
+              
+              $consulta = "INSERT INTO consulta (nome, email, cpf, datanascimento,dataconsulta,token) VALUES ('$nome', '$email','$cpf_sem_pontuacao','$datanascimento','$datahora','$token')";
+              mysqli_query($conn, $consulta);
+
+              echo "Consulta marcada com sucesso.";
+
+          } else {
+              // Horário já está ocupado
+              echo "Horário já está ocupado. Por favor, selecione outro horário.";
+
             }
-            if (mysqli_num_rows($result) > 0) {
-                // Horário está disponível
-                $dtconsulta = $_POST["dtconsulta"];
-                $hora_inicio = $_POST["hora_inicio"];
-                echo "Horário disponível. Pode agendar a consulta.";
-            } else {
-                // Horário já está ocupado
-                echo "Horário já está ocupado. Por favor, selecione outro horário.";
-            }
-        }
+      }      
       ?>
       </center>
         </div>

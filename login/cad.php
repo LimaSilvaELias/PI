@@ -44,7 +44,7 @@ if (isset($_SESSION['token'])){
             <form class="darkcard " method="post" action="validarcad.php">
                 <br>
                     <h2>Cadastro de Usuários</h2>
-                    <form method="post" action="cadastro.php">
+                    <form method="post" action="cad.php">
                         <label for="nome">Nome:</label><br>
                         <input class="btn btn-outline-light"type="text" id="nome" name="nome" required autofocus><br><br>
                         <label for="email">Email:</label><br>

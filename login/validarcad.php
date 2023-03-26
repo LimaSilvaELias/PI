@@ -28,9 +28,8 @@ if (mysqli_num_rows($resultado) > 0) {
     echo "O endereço de e-mail já esta em uso. Por favor entre ou escolha outro.";
     exit();
 }
-$codigo = $_SESSION['codigo'];
-$token = hash('sha256', $codigo);
 
+$token = hash('sha256',$email);
 
 
 // Criptografe a senha usando a função password_hash() e insira os dados do usuário na tabela "cliente" do banco de dados
