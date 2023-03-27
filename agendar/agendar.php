@@ -13,7 +13,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JavaMIX - Agendar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/divisoes.css">
@@ -37,22 +37,25 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
           <div class="card animecards">
             <img src="https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2015/10/formacao_a_medicina_e-_a-_profissao_com_-o_-dom_-de_-salvar_-vidas.jpg" class="card-img-top img16_9" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title">Agende Sua Consulta</h5>
+              <p class="card-text">Preencha os campos para agendar a sua consulta conosco de forma rápida e fácil.</p>
             </div>
           </div>
           <div class="card animecards">
-            <img src="https://media.discordapp.net/attachments/874439592999260190/891460284680642570/ANVHnRTXD4sZAAAAAElFTkSuQmCC.png" class="card-img-top img16_9" alt="...">
+            <img src="https://www.medcentersauderio.com.br/images/Blog/clinico-geral.jpg" class="card-img-top img16_9" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              <h5 class="card-title">Benefícios</h5>
+              <p class="card-text">Agilidade no agendamento de consultas.
+Agende sua consulta em qualquer hora e lugar.
+Economize tempo!
+</p>
             </div>
           </div>
           <div class="card animecards">
             <img src="https://blog.estacio.br/wp-content/uploads/2020/02/medicina.jpg" class="card-img-top img16_9" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              <h5 class="card-title">Equipe</h5>
+              <p class="card-text">Profissionais atenciosos e 100% qualificados para o seu atendimento!</p>
             </div>
           </div>
         </div>   
