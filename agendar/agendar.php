@@ -1,6 +1,7 @@
 <?php  
-session_start();
 include_once('../login/conexao.php');
+require("../login/validarsessao.php");
+
 $token= $_SESSION['token'];
 $cpf= $_SESSION['cpf'];
 $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
@@ -172,6 +173,7 @@ Economize tempo!
 
     <div class="verticalDiv"></div>
   </div>
+  
   <div class="horizontalDiv"></div>
   <div class="horizontalDiv"></div>
   <iframe src="../footer.html" class="rodape"></iframe>

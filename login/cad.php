@@ -38,38 +38,38 @@ if (isset($_SESSION['token'])){
        
           
          ?>
-        <div class="boxUniversal animedown container-fluid ">
-        
-         <div class="animedown defaultcard">
-            <form class="darkcard " method="post" action="validarcad.php">
-                <br>
-                    <h2>Cadastro de Usuários</h2>
-                    <form method="post" action="cad.php">
-                        <label for="nome">Nome:</label><br>
-                        <input class="btn btn-outline-light"type="text" id="nome" name="nome" required autofocus><br><br>
-                        <label for="email">Email:</label><br>
-                        <input class="btn btn-outline-light"type="email" id="email" name="email" required><br><br>
-                        <label>CPF:</label><br>
-                        <input class="btn btn-outline-light"type="text"name="cpf" id="cpf" minlength="11" required placeholder="000.000.000-00"><br><br>
-                        <label for="senha">Senha:</label><br>
-                        <input class="btn btn-outline-light"type="password" id="senha" name="senha" required><br><br>
-                        <input class="btn btn-outline-light"type="submit" value="Cadastrar">
+        <div class="loginBox animedown container-fluid ">
+            <div></div>
+            <div class="animedown defaultcard">
+                    <form class="darkcard " method="post" action="validarcad.php">
+                        <br>
+                            <h2>Cadastro de Usuários</h2>
+                            <form method="post" action="cad.php">
+                                <label for="nome">Nome:</label><br>
+                                <input class="btn btn-outline-light"type="text" id="nome" name="nome" required autofocus><br><br>
+                                <label for="email">Email:</label><br>
+                                <input class="btn btn-outline-light"type="email" id="email" name="email" required><br><br>
+                                <label>CPF:</label><br>
+                                <input class="btn btn-outline-light"type="text"name="cpf" id="cpf" minlength="11" required placeholder="000.000.000-00"><br><br>
+                                <label for="senha">Senha:</label><br>
+                                <input class="btn btn-outline-light"type="password" id="senha" name="senha" required><br><br>
+                                <input class="btn btn-outline-light"type="submit" value="Cadastrar">
+                            </form>
                     </form>
-            </form>
-        </div>
-        <div class="verticalDiv ghostDiv"></div>
-        <div class="animedown defaultcard">
-            <form class="darkcard" method="POST" action="login.php">
-                <br>
-                <h2>Login de Usuários</h2>
-                <label for="usuario">E-mail:</label><br>
-                <input class="btn btn-outline-light" type="text" name="email" id="email" required><br>
-                <label for="senha">Senha:</label><br>
-                <input class="btn btn-outline-light" type="password" name="senha" id="senha" required><br><br>
-                <button class="btn btn-outline-light" type="submit" name="login">Entrar</button><br>
-            </form>
-        </div>
-        
+                </div>
+            <div class="verticalDiv ghostDiv"></div>
+            <div class="animedown defaultcard">
+                <form class="darkcard" method="POST" action="login.php">
+                    <br>
+                    <h2>Login de Usuários</h2>
+                    <label for="usuario">E-mail:</label><br>
+                    <input class="btn btn-outline-light" type="text" name="email" id="email" required><br>
+                    <label for="senha">Senha:</label><br>
+                    <input class="btn btn-outline-light" type="password" name="senha" id="senha" required><br><br>
+                    <button class="btn btn-outline-light" type="submit" name="login">Entrar</button><br>
+                </form>
+            </div>
+            <div></div>
         </div>
         <br>
         <br>
@@ -80,5 +80,7 @@ if (isset($_SESSION['token'])){
             <iframe src="../footer.html" class="rodape" ></iframe>
         </footer>
         </center>
+        
+    <script src="../scripts/responsividade.js"></script>
     </body>
     </html>

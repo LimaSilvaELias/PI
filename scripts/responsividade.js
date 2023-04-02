@@ -4,12 +4,13 @@ $(document).ready(function() {
     nav();
     formularios();
     navmobile();
-
+    boxs();
 });
 $(window).resize(function() {
     nav();
     formularios();
     navmobile();
+    boxs();
 
 });
 
@@ -46,6 +47,17 @@ function navmobile() {
     }
 };
 
+function boxs() {
+    if (document.body.clientWidth < 600) {    
+        $(".loginBox").addClass("loginBoxMob");
+        $('.boxUniversal').addClass("boxUniversalMob");
+        $('.grade').addClass("boxUniversalMob");
+    } else {    
+        $(".loginBox").removeClass("loginBoxMob");
+        $('.boxUniversal').removeClass("boxUniversalMob");
+        $('.grade').removeClass("boxUniversalMob");
+    }
+};
 
 
 

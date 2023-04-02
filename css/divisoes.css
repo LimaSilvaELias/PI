@@ -22,10 +22,14 @@ body{
 }
 
 .boxUniversal{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 10fr 2fr;
     justify-content: center;
-    flex-wrap: wrap ;
+}
+.loginBox{
+    display: grid;
+    grid-template-columns: 2fr 5fr 2fr 5fr 2fr;
+    justify-content: center;
 }
 .bgbluehite{
     height: 100vh;
@@ -45,9 +49,7 @@ body{
 }
 .defaultcard{
     width: 500px;
-    
     text-align: center;
-    
 }
 .darkcard{
     height: 550px;
@@ -114,7 +116,7 @@ body{
 }
 .rodape{
     width: 100%;
-    height: 400px;
+    height: 20vw;
     border: 0px;
 }
 .carrosel{
@@ -167,8 +169,22 @@ body{
     pointer-events: none;
     opacity: 0;
 }
+.loginBoxMob{
+    display: flex;
+    flex-wrap: wrap;
+justify-content: center;
 
-
+}
+.boxUniversalMob{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gradeMob{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 
 

@@ -15,30 +15,26 @@
     <div class="d-flex animedown"> 
         <iframe src="../navegador.html" class="navegador" id="meuiframe"></iframe>
     </div>
-<?php
-session_start();
-include_once('../login/conexao.php');
+    <?php
+            include_once('../login/conexao.php');
+            require("../login/validarsessao.php");
 
-// Verificar se o usuário tem uma sessão ativa
-if (!isset($_SESSION['token'])) {
-  header('Location: ../login/cad.php');
-  exit();
-}
-
-// Recuperar as informações do usuário da tabela do banco de dados
-$token = $_SESSION['token'];
-$nome = $_SESSION['nome'];
-$email= $_SESSION['email'];
-$codigo= $_SESSION['codigo'];
+            // Recuperar as informações do usuário da tabela do banco de dados
+            $token = $_SESSION['token'];
+            $nome = $_SESSION['nome'];
+            $email= $_SESSION['email'];
+            $codigo= $_SESSION['codigo'];
 
 
-$cpf= $_SESSION['cpf'];
-$pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
+            $cpf= $_SESSION['cpf'];
+            $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
 
-$query = "SELECT * FROM cliente WHERE token='$token'";
+            $query = "SELECT * FROM cliente WHERE token='$token'";
 
-?><br><br>
+    ?>
+<br><br>
     <div class="boxUniversal ">
+        <div></div>
         <div class="container-fluid animeup">
             <div class="boxUniversal infoperfil">
                 <div class="animeup">
@@ -110,6 +106,7 @@ $query = "SELECT * FROM cliente WHERE token='$token'";
             </div>
             <div class="verticalDiv"></div>
         </div>
+        <div></div>
     </div>
     
     <div class="horizontalDiv"></div>
@@ -117,7 +114,7 @@ $query = "SELECT * FROM cliente WHERE token='$token'";
 
     <iframe src="../footer.html" class="rodape" ></iframe>
 
-    <script src="scripts/responsividade.js"></script>
+    <script src="../scripts/responsividade.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
