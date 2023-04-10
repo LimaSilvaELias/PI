@@ -34,7 +34,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
     <div>
       <div class="horizontalDiv"></div>
       
-        <div class="card-group container-fluid bodydiv">
+        <div class="card-group container-fluid bodydiv text-dark">
           <div class="card animecards">
             <img src="https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2015/10/formacao_a_medicina_e-_a-_profissao_com_-o_-dom_-de_-salvar_-vidas.jpg" class="card-img-top img16_9" alt="...">
             <div class="card-body">
@@ -47,9 +47,9 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
             <div class="card-body">
               <h5 class="card-title">Benefícios</h5>
               <p class="card-text">Agilidade no agendamento de consultas.
-Agende sua consulta em qualquer hora e lugar.
-Economize tempo!
-</p>
+              Agende sua consulta em qualquer hora e lugar.
+              Economize tempo!
+              </p>
             </div>
           </div>
           <div class="card animecards">

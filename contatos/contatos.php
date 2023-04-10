@@ -26,7 +26,7 @@ include_once('../login/conexao.php');
       <div>
          <div class="horizontalDiv"></div>
 
-            <div class="card-group container-fluid bodydiv">
+            <div class="card-group container-fluid bodydiv text-dark">
               <div class="card animecards">
                 <img src="https://th.bing.com/th/id/R.f8eebffa38b9df2f4f0a244758c62f6b?rik=H8N9%2bD3%2f%2bWiPRA&riu=http%3a%2f%2fst2.depositphotos.com%2f1026266%2f11927%2fi%2f450%2fdepositphotos_119279600-stock-photo-business-person-in-doubt-and.jpg&ehk=CZ84yBHtlLYrQ5fjzwlYle8PAmd%2fQag7REdK0m46xW8%3d&risl=&pid=ImgRaw&r=0" class="card-img-top img16_9" alt="...">
                 <div class="card-body">
