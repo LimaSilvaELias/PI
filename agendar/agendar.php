@@ -83,15 +83,14 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
               <input type="text" name="cpf" maxlength="14" placeholder="000.000.000-00"><br>
               
               Data Nascimento:<br>
-              <input type="datetime" name="datanascimento" max="8" placeholder="00 / 00 / 0000">
+              <div class="calendar">
+            <span class="calendar-icon"> <input type="date" id="datanascimento" name="datanascimento" ></span>
+        </div>
             </div>
-            
+            <hr>
             <div>
               Data Consulta:
               <br>
-              
-                
-        
         <div class="calendar">
             <span class="calendar-icon"> <input type="date" id="dtconsulta" name="dtconsulta" ></span>
         </div>
