@@ -220,6 +220,7 @@ justify-content: center;
     width: 80px;
     height: 50px;
   }
+/*   
 .ImagePicker{
     color: #ecececf5; 
     width: fit-content;
@@ -234,12 +235,12 @@ justify-content: center;
     border: none;
 }
 .ImagePicker input[type="file"]::-webkit-file-upload-button {
-    background-color: #525252; /* Define a cor de fundo */
-    color: #ececec; /* Define a cor do texto */
-    border: 1px solid #333333; /* Define a cor da borda */
+    background-color: #525252; 
+    color: #ececec;
+    border: 1px solid #333333; 
 }
   
-  
+   */
 
 /* redimensionamento de imagens */
 .icon{
