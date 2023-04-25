@@ -25,7 +25,6 @@ if(isset($_POST['login'])) {
             $_SESSION['cpf'] = $objeto['cpf'];
             $_SESSION['email'] = $objeto['email'];
             $_SESSION['codigo'] = $objeto['codigo'];
-
             $_SESSION['token'] = $objeto['token'];
 
             

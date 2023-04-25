@@ -5,12 +5,11 @@ include_once('conexao.php');
 
 
 //CONVERTENDO OS CAMPOS PARA O BD PHP
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-$cpf = $_POST['cpf'];
+$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+$cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
 $cpf_sem_pontuacao = str_replace(array('.', '-'), '', $cpf);
-
 
 // conectar ao banco de dados usando a função mysqli_connect().
 

@@ -104,7 +104,7 @@ include_once('../login/conexao.php');
             </div>
               <div class="">
                 <input class="submit" type="submit" name="enviar" value="Enviar" >
-                <input class="reset" type="reset" name="cancelar" value="Cancelar" onclick="">
+                <!-- <input class="reset" type="reset" name="cancelar" value="Cancelar" onclick=""> -->
               </div>
               <?php
     if (isset($_SESSION['msg'])) {

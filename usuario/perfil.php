@@ -11,7 +11,6 @@
     <script src="../jquery-3.6.3.min.js"></script>
 </head>
 <body>
-    <script src="../login/validarsessao.php"></script>
     <div class="d-flex animedown"> 
         <iframe src="../navegador.html" class="navegador" id="meuiframe"></iframe>
     </div>
@@ -60,48 +59,47 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         
-                        <hr>
                         <li><a class="dropdown-item" href="../login/destruirsessao.php">Sair</a></li>
                         </ul>
-                    </div> 
+                    </div>
                 </div>
             </div> 
             <br>
-            <div class='grade center darkgrade consulta'>
+            <div class=' center darkgrade consulta'>
+                <div class='grade'>
                     <?php 
                     // Query SQL
                         $query = "SELECT * FROM consulta WHERE token='$token'";
 
-                        // Executar a query e obter o resultado
                         $result = mysqli_query($conn, $query);
                         
-                        
-
                         // Loop pelos resultados
                         while ($row = mysqli_fetch_assoc($result,)) {
                             // Imprime o valor de cada coluna
-                            echo "
-                                    <i>
-                                    Nome: " . $row['nome'] . "<br>
-                                    Email: " . $row['email'] . "<br>
-                                    CPF: " . $row['cpf'] . "<br>
-                                    Data de Nascimento: " . $row['datanascimento'] . "<br>
-                                    Data e hora da consulta: <br>" . $row['dataconsulta'] . "<br>
-                                    </i>
-                                ";
-                            // E assim por diante...
-                        } 
-                        // Fechar a conexão com o banco de dados
-                        mysqli_close($conn);
+                            $dthrconsultar=$row['dataconsulta'];
 
-                       
-                    // nome: <br><br>
-                    // consulta: <br>
-                    // data: <br>
-                    // horario: <br>
-                    // <button type="submit">Editar</button>......<button type="submit">Cancelar</button>
-                
+                            $dtconsulta = substr($dthrconsultar, 0, 10);
+                            $hora_inicio = substr($dthrconsultar, 10, 18);
+
+                            echo "<div class='darkconsulta'>
+                                    
+                                    Nome: " . $row['nome'] . "<hr>
+                                    CPF: " . $row['cpf'] . "<hr>
+                                    Email: <br>" . $row['email'] . "<hr>
+                                    
+                                    Data de Nascimento: <br>" . $row['datanascimento'] . "<hr>
+                                    Data e hora da consulta: <br>" . $row['dataconsulta'] . "<hr>
+                                    <a class='btn btn-info' href='editarcon.php?id=" . $row['codigo'] . "'>Editar</a>
+                                    
+                                    <a class='btn btn-danger' href='confirm.php?id=" . $row['codigo'] . ". &dataconsulta=" . $row['dataconsulta'] . "'>Cancelar Consulta</a>
+                                    
+                                    </div>
+                                    
+                                ";
+                        } 
+                        mysqli_close($conn);
                     ?>
+                    </div>
             </div>
             <div class="verticalDiv"></div>
         </div>

@@ -79,33 +79,36 @@ body{
 .grade{
     display: grid;
     justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 220px 220px 220px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 430px;
+    
 }
 
 .darkgrade{
     background-color: #212121;
     color: rgb(234, 234, 234);
 }
-.darkgrade i{
-    justify-content: left;
-    align-items: center;
-    background-color: #f0f0f0;
-    color: #212121;
-    margin: 7px;
-    padding: 10px;
-    border-radius: 3px;
+
+.darkconsulta{
+    height: 400px;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 15px;
 }
+.darkconsulta hr{
+    width: 350px;
+}
+.consulta{
+    border-color: #212121;
+    border-width: 20px;
+    border-radius: 20px;
+}
+
 .infoperfil{
     display: flex;
     justify-content: space-around;
     
-}
-.consulta{
-    border-width: 5px;
-    border-color: #212121;
-    border-radius: 2px;
-
 }
 
 
@@ -162,6 +165,7 @@ body{
 .tam{
     height: 190px !important;
 }
+
 .hide{
     width: 0;
     height: 0;
@@ -203,7 +207,7 @@ justify-content: center;
     width: 400%;
 }
 .calendar{
-    width: 60px;
+    width: 80px;
     position: relative;
 }
 .calendar input{

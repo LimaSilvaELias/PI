@@ -30,7 +30,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
   </div>
   <div class="boxUniversal">
 
-    <div class="verticalDiv"></div>
+  <div class="verticalDiv"></div>
     <div>
       <div class="horizontalDiv"></div>
       
@@ -84,7 +84,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
               
               Data Nascimento:<br>
               <div class="calendar">
-            <span class="calendar-icon"> <input type="date" id="datanascimento" name="datanascimento" ></span>
+            <span class="calendar"> <input type="date" id="datanascimento" name="datanascimento" ></span>
         </div>
             </div>
             <hr>
@@ -92,7 +92,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
               Data Consulta:
               <br>
         <div class="calendar">
-            <span class="calendar-icon"> <input type="date" id="dtconsulta" name="dtconsulta" ></span>
+            <span class="calendar"> <input type="date" id="dtconsulta" name="dtconsulta" ></span>
         </div>
         <!-- <input type="date" id="data" name="dtconsulta" readonly value=""> -->
   
@@ -135,15 +135,16 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
         // Verifica se o formulário foi enviado
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           // Recupera as informações do formulário
-          $nome = $_POST['nome'];
-          $email = $_POST['email'];
-          $cpf = $_POST['cpf'];
+          $nome = filter_var($_POST['nome'], FILTER_SANITIZE_STRING);
+          $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+          $cpf = filter_var($_POST['cpf'], FILTER_SANITIZE_STRING);
           $cpf_sem_pontuacao = str_replace(array('.', '-'), '', $cpf);
-          $datanascimento = $_POST['datanascimento'];
+          $datanascimento = filter_var($_POST['datanascimento'], FILTER_SANITIZE_STRING);
 
-          $dtconsulta = $_POST["dtconsulta"];
-          $hora_inicio = $_POST["hora_inicio"];
+          $dtconsulta = filter_var($_POST["dtconsulta"], FILTER_SANITIZE_STRING);
+          $hora_inicio = filter_var($_POST["hora_inicio"], FILTER_SANITIZE_STRING);
           $datahora=$dtconsulta." ".$hora_inicio;
+
           
           // Verifica se o horário está disponível
           $sql = "SELECT * FROM horario WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio' AND disponivel = 1";
