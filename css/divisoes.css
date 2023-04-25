@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
 }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 
@@ -121,6 +122,9 @@ body{
     width: 100%;
     height: 20vw;
     border: 0px;
+    background-color: #212529 ;
+    color: #ffffff
+    
 }
 .carrosel{
     margin: 0px;
