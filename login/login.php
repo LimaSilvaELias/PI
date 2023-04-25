@@ -31,10 +31,14 @@ if(isset($_POST['login'])) {
             header('Location: ../usuario/perfil.php');
             exit();
         } else {
-            echo "Senha incorreta. Tente novamente.";
+            //echo "Senha incorreta. Tente novamente.";
+            $_SESSION['msg']="<h2><p style='color: red;'>Senha incorreta. Tente novamente.</p></h2";
+            header('Location: ../login/cad.php');
         }
     } else {
-        echo "E-mail não encontrado. Tente novamente.";
+        //echo "E-mail não encontrado. Tente novamente.";
+        $_SESSION['msg']="<h2><p style='color: red;'>E-mail não encontrado. Tente novamente.</p></h2";
+        header('Location: ../login/cad.php');
     }
 }
 

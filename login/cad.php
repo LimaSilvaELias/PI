@@ -1,4 +1,4 @@
-<?php
+--<?php
 session_start();
 include_once('conexao.php');
 if (isset($_SESSION['token'])){
@@ -30,20 +30,23 @@ if (isset($_SESSION['token'])){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
-        <?php 
+    <center>
+                        <?php 
          if(isset($_SESSION['msg'])){
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
          } 
-       
-          
          ?>
+         </center>
+         <br>
         <div class="loginBox animedown container-fluid ">
             <div></div>
             <div class="animedown defaultcard">
+       
                     <form class="darkcard " method="post" action="validarcad.php">
                         <br>
-                            <h2>Cadastro de Usuários</h2>
+                        
+                            <h2>Cadastro de Usuários</h2><br>
                                 <label for="nome">Nome:</label><br>
                                 <input class="btn btn-outline-light"type="text" id="nome" name="nome" required autofocus><br><br>
                                 <label for="email">Email:</label><br>
@@ -58,11 +61,14 @@ if (isset($_SESSION['token'])){
                 </div>
             <div class="verticalDiv ghostDiv"></div>
             <div class="animedown defaultcard">
+           
                 <form class="darkcard" method="POST" action="login.php">
+              
                     <br>
-                    <h2>Login de Usuários</h2>
+                    
+                    <h2>Login de Usuários</h2><br>
                     <label for="usuario">E-mail:</label><br>
-                    <input class="btn btn-outline-light" type="text" name="email" id="email" required><br>
+                    <input class="btn btn-outline-light" type="text" name="email" id="email" required><br><br>
                     <label for="senha">Senha:</label><br>
                     <input class="btn btn-outline-light" type="password" name="senha" id="senha" required><br><br>
                     <button class="btn btn-outline-light" type="submit" name="login">Entrar</button><br>

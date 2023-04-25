@@ -69,20 +69,29 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
         </div>
         <br><br>
         <div class="justify-content-center d-flex divstyle">
+       
+         <form method="POST" action="inserir_agendamento.php" name="">
+         <?php 
+         if(isset($_SESSION['msg'])){
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+            
+         }   
+         ?> 
         <form method="POST" action="agendar.php" name="agendamento">
-          
+         
+       
             <br>
             <div class="">
-              Nome:<br>
+              Nome:
               <input type="text" name="nome" maxlength="30" placeholder="Nome e Sobrenome">
-              <br>
-              E-mail:<br>
-              <input type="mail" name="email" maxlength="40" placeholder="usuario@email.com">
-              <br>
-              CPF:<br>
-              <input type="text" name="cpf" maxlength="14" placeholder="000.000.000-00"><br>
               
-              Data Nascimento:<br>
+              E-mail:
+              <input type="mail" name="email" maxlength="40" placeholder="usuario@email.com">
+              
+              CPF:
+              <input type="text" name="cpf" maxlength="14" placeholder="000.000.000-00"><br>
+              Data Nascimento:
               <div class="calendar">
             <span class="calendar"> <input type="date" id="datanascimento" name="datanascimento" ></span>
         </div>
@@ -96,7 +105,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
         </div>
         <!-- <input type="date" id="data" name="dtconsulta" readonly value=""> -->
   
-        <label for="hora_inicio">Horário da Consulta:</label><br>
+        <label for="hora_inicio">Horário da Consulta:</label>
         <select name="hora_inicio" required>
             <option value="">Selecione um horário</option>
             <option value="09:00:00">09:00</option>
@@ -127,11 +136,13 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
 
             </div>
             <br>
-            
+      
+          </form>
           </form>
           <center>
-          <?php
           
+
+       <?php   
         // Verifica se o formulário foi enviado
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           // Recupera as informações do formulário
@@ -165,6 +176,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
 
             }
       }      
+      
       ?>
       </center>
         </div>

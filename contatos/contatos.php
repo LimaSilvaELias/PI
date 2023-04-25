@@ -56,9 +56,9 @@ include_once('../login/conexao.php');
               <div class="col-sm-6">
                 <div class="card">
                 <div class="card-body">
-                <h5 class="card-title">Desejo Agendar Uma Consulta</h5>
-                <p class="card-text">Deseja agendar uma consulta? Clique no botão abaixo!</p>
-                <a href="../agendar/agendar.php" class="btn btn-primary">Agende uma Consulta</a>
+                <h5 class="card-title">Agendar</h5>
+                <p class="card-text">Clique no botão abaixo!</p>
+                <a href="../agendar/agendar.php" class="btn btn-primary">Agendar</a>
                 </div>
                 </div>
               </div>
@@ -66,7 +66,7 @@ include_once('../login/conexao.php');
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Exames</h5>
-                    <p class="card-text">Dúvidas a respeito de quais exames fazemos? Clique no botão abaixo!</p>
+                    <p class="card-text">Clique no botão abaixo!</p>
                     <a href="../exames/exame.html" class="btn btn-primary">Exames</a>
                   </div>
                 </div>

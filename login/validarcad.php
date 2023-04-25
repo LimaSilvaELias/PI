@@ -24,7 +24,9 @@ $consulta = "SELECT * FROM cliente WHERE email = '$email'";
 $resultado = mysqli_query($conn, $consulta);
 
 if (mysqli_num_rows($resultado) > 0) {
-    echo "O endereço de e-mail já esta em uso. Por favor entre ou escolha outro.";
+    //echo "O endereço de e-mail já esta em uso. Por favor entre ou escolha outro.";
+    $_SESSION['msg']="<h2><p style='color: red;'>Endereço de e-mail já cadastrado.</p></h2";
+    header('Location: ../login/cad.php');
     exit();
 }
 
