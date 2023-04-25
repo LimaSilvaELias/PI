@@ -16,9 +16,6 @@
     include_once('../login/conexao.php');
     require("../login/validarsessao.php");
     
-    $dataconsulta= $_SESSION['dtconsulta'];
-    $hora_inicio= $_SESSION['hora_inicio'];
-    
     $id = $_GET['id'];
     $dataconsulta = $_GET['dataconsulta'];
     
