@@ -15,7 +15,7 @@ include_once('../login/conexao.php');
     <script src="jquery-3.6.3.min.js"></script>
 
 </head>
-<body class="bg">
+<body>
     
     <div class="d-flex"> 
         <iframe src="../navegador.html" class="navegador" ></iframe>
