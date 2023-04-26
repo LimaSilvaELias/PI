@@ -23,7 +23,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
 
 </head>
 
-<body>
+<body class="bg">
 
   <div class="d-flex">
     <iframe src="../navegador.html" class="navegador"></iframe>
@@ -175,12 +175,9 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
         
       </div>
     </div>
-
-    <div class="verticalDiv"></div>
+    <br>
   </div>
-  
-  <div class="horizontalDiv"></div>
-  <div class="horizontalDiv"></div>
+  <br><br><br>
   <iframe src="../footer.html" class="rodape"></iframe>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>      
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
