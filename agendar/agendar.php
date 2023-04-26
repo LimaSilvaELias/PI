@@ -33,8 +33,9 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
   <div class="verticalDiv"></div>
     <div>
       <div class="horizontalDiv"></div>
-      
-        <div class="card-group container-fluid bodydiv text-dark">
+      <div class="bodydiv">
+        <div class="horizontalDiv"></div>
+        <div class="card-group container-fluid text-dark">
           <div class="card animecards">
             <img src="https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2015/10/formacao_a_medicina_e-_a-_profissao_com_-o_-dom_-de_-salvar_-vidas.jpg" class="card-img-top img16_9" alt="...">
             <div class="card-body">
@@ -60,89 +61,81 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
             </div>
           </div>
         </div>   
-
+        <div class="horizontalDiv"></div>
+      </div>
       <br><br><br>
       <div class="bodydiv">
+        <br>
         <div class="text-center divstyle">
-          <img src="../Img/logopreto.png" width="100px">
+          <img src="../Img/logobranca.png" width="50px">
           <h2>Agende sua Consulta</h2>
         </div>
         <br><br>
-        <div class="justify-content-center d-flex divstyle">
-       
          <form method="POST" action="inserir_agendamento.php" name="">
          <?php 
          if(isset($_SESSION['msg'])){
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
-            
          }   
-         ?> 
+         ?>
         <form method="POST" action="agendar.php" name="agendamento">
-         
-       
-            <br>
-            <div class="">
-              Nome:
-              <input type="text" name="nome" maxlength="30" placeholder="Nome e Sobrenome">
-              
-              E-mail:
-              <input type="mail" name="email" maxlength="40" placeholder="usuario@email.com">
-              
-              CPF:
-              <input type="text" name="cpf" maxlength="14" placeholder="000.000.000-00"><br>
-              Data Nascimento:
-              <div class="calendar">
-            <span class="calendar"> <input type="date" id="datanascimento" name="datanascimento" ></span>
-        </div>
-            </div>
-            <hr>
-            <div>
-              Data Consulta:
+        <div class="gradeAgendar ">
+              <div>
+                Nome: <br>
+                <input class="divdstyle" type="text" name="nome" maxlength="30" placeholder="Nome e Sobrenome">
               <br>
-        <div class="calendar">
-            <span class="calendar"> <input type="date" id="dtconsulta" name="dtconsulta" ></span>
-        </div>
-        <!-- <input type="date" id="data" name="dtconsulta" readonly value=""> -->
-  
-        <label for="hora_inicio">Horário da Consulta:</label>
-        <select name="hora_inicio" required>
-            <option value="">Selecione um horário</option>
-            <option value="09:00:00">09:00</option>
-            <option value="09:30:00">09:30</option>
-            <option value="10:00:00">10:00</option>
-            <option value="10:30:00">10:30</option>
-            <option value="11:00:00">11:00</option>
-            <option value="11:30:00">11:30</option>
-            <option value="14:00:00">14:00</option>
-            <option value="14:30:00">14:30</option>
-            <option value="15:00:00">15:00</option>
-            <option value="15:30:00">15:30</option>
-            <option value="16:00:00">16:00</option>
-            <option value="16:30:00">16:30</option>
-            <option value="17:00:00">17:00</option>
-            <option value="17:30:00">17:30</option>
-        </select>
-    
-              <br><br>
-            <div class="">
-              <div class="">
-                <input class="submit" type="submit" name="agendar" value="Agendar">
-                </div>
-                
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                
+                E-mail:<br>
+                <input class="divdstyle"type="mail" name="email" maxlength="40" placeholder="usuario@email.com">
+              </div>
+             <div>
+                CPF:<br>
+                <input class="divdstyle"type="text" name="cpf" maxlength="14" placeholder="000.000.000-00">
+              <br>
+                Data de Nascimento:<br>
+                <span class="calendar"> <input type="date" id="datanascimento" name="datanascimento" ></span>
+              </div>
+              <div>
+                <label for="hora_inicio">Horário da Consulta:</label><br>
+                <select class="divdstyle"name="hora_inicio" required>
+                  <option value="">Selecione um horário</option>
+                  <option value="09:00:00">09:00</option>
+                  <option value="09:30:00">09:30</option>
+                  <option value="10:00:00">10:00</option>
+                  <option value="10:30:00">10:30</option>
+                  <option value="11:00:00">11:00</option>
+                  <option value="11:30:00">11:30</option>
+                  <option value="14:00:00">14:00</option>
+                  <option value="14:30:00">14:30</option>
+                  <option value="15:00:00">15:00</option>
+                  <option value="15:30:00">15:30</option>
+                  <option value="16:00:00">16:00</option>
+                  <option value="16:30:00">16:30</option>
+                  <option value="17:00:00">17:00</option>
+                  <option value="17:30:00">17:30</option>
+                </select><br>
+              Data da Consulta:
+              <br>
+              <div class="calendar">
+                <span class="calendar"> <input type="date" id="dtconsulta" name="dtconsulta" ></span>
+              </div>
+              </div>
+                <br><br>
 
-
-            </div>
-            <br>
-      
-          </form>
-          </form>
+          </div>       
           <center>
+            <input class="submit" type="submit" name="agendar" value="Agendar">
+          </center>
+            <br><br>
+          </form>
+        </form>
+
+
+
+
+      <center>
           
 
-       <?php   
+      <?php   
         // Verifica se o formulário foi enviado
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           // Recupera as informações do formulário
@@ -179,7 +172,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
       
       ?>
       </center>
-        </div>
+        
       </div>
     </div>
 
@@ -189,7 +182,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
   <div class="horizontalDiv"></div>
   <div class="horizontalDiv"></div>
   <iframe src="../footer.html" class="rodape"></iframe>
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>      
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
