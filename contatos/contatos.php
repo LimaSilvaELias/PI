@@ -15,7 +15,7 @@ include_once('../login/conexao.php');
     <script src="jquery-3.6.3.min.js"></script>
 
 </head>
-<body>
+<body class="bg">
     
     <div class="d-flex"> 
         <iframe src="../navegador.html" class="navegador" ></iframe>
@@ -77,7 +77,7 @@ include_once('../login/conexao.php');
             <div class="horizontalDiv"></div>
             <div class="bodydiv">
               <div class="text-center divstyle">
-                <img src="../Img/logopreto.png" width="100px" >
+                <img src="../Img/logobranca.png" width="50px" >
                 <h2>Envie Sua Mensagem</h2>
               </div>
             <div class="horizontalDiv"></div>

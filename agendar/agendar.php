@@ -23,7 +23,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
 
 </head>
 
-<body>
+<body class="bg">
 
   <div class="d-flex">
     <iframe src="../navegador.html" class="navegador"></iframe>

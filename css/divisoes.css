@@ -44,7 +44,12 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
+}
+.bg{
+    background-image: url(../Img/ae4866824012b855e82a358960c1d0d6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 .bodydiv{
     width: 80vw;
@@ -52,9 +57,7 @@ body{
     background-image: url(../Img/blue-copy-space-digital-background_23-2148821698_auto_x2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
-    box-shadow:  22px 22px 44px #909090,
-             -22px -22px 44px #b5b5b5;
+    color: aliceblue;
 }
 
 .defaultcard{
