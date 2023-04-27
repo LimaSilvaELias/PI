@@ -59,7 +59,9 @@ body{
     background-size: cover;
     color: aliceblue;
 }
-
+.card-group{
+    line-height: 1.4em !important;
+}
 .defaultcard{
     width: 500px;
     text-align: center;
