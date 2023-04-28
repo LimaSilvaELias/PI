@@ -58,6 +58,7 @@ if (isset($_SESSION['token'])){
                                 <input class="btn btn-outline-light"type="submit" value="Cadastrar">
                             
                     </form>
+                    
                 </div>
             <div class="verticalDiv ghostDiv"></div>
             <div class="animedown defaultcard">

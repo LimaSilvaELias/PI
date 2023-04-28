@@ -65,8 +65,8 @@
                 </div>
             </div> 
             <br>
-            <div class=' center darkgrade consulta'>
-                <div class='grade'>
+            <div class='darkgrade consulta'>
+                <div class='d-flex flex-wrap container-fluid'>
                     <?php 
                     // Query SQL
                         $query = "SELECT * FROM consulta WHERE token='$token'";

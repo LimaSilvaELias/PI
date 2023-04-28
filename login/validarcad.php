@@ -29,7 +29,16 @@ if (mysqli_num_rows($resultado) > 0) {
     header('Location: ../login/cad.php');
     exit();
 }
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cpf = $_POST["cpf"];
+    if (preg_match('/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/', $cpf)) {
+        echo "<p>O CPF $cpf é válido.</p>";
+    } else {
+        $_SESSION['msg']="<h2><p style='color: red;'>O CPF $cpf é inválido</p></h2";
+        exit();
+    }
+    
+}
 $token = hash('sha256',$email);
 
 

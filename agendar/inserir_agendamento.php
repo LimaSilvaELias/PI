@@ -1,72 +1,83 @@
 <?php 
 session_start();
 include_once('../login/conexao.php');
+require("../login/validarsessao.php");
+$token= $_SESSION['token'];
+$cpf= $_SESSION['cpf'];
 
 //CONVERTENDO OS CAMPOS PARA O BD PHP
-$nome   = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-$cpf    = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
-$datanascimento = filter_input(INPUT_POST,'datanascimento', FILTER_SANITIZE_NUMBER_INT);
+// Verifica se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	// Recupera as informações do formulário
+	$nome = filter_var($_POST['nome'], FILTER_SANITIZE_STRING);
+	$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+	$cpf = filter_var($_POST['cpf'], FILTER_SANITIZE_STRING);
+	$cpf_sem_pontuacao = str_replace(array('.', '-'), '', $cpf);
+	$datanascimento = filter_var($_POST['datanascimento'], FILTER_SANITIZE_STRING);
 
-$cpf = $_POST['cpf'];
-	// Verifica se um número foi informado
-	if(empty($cpf)) {
-		return false;
-	}
+	$dtconsulta = filter_var($_POST["dtconsulta"], FILTER_SANITIZE_STRING);
+	$hora_inicio = filter_var($_POST["hora_inicio"], FILTER_SANITIZE_STRING);
+	$datahora=$dtconsulta." ".$hora_inicio;
 
-	// Elimina possivel mascara
-	$cpf = preg_replace("/[^0-9]/", "", $cpf);
-	$cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
+	//=============================================================================================
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cpf = $_POST["cpf"];
+    if (validaCPF($cpf)) {
+		echo "<p>ok.</p>";
+    } else {
+        $_SESSION['msg']="<h2><p style='color: lightred;'>O CPF $cpf é inválido</p></h2>";
+		header("location: agendar.php");
+        exit();
+    }
+	};
+	//=============================================================================================
+	// Verifica se o horário está disponível
+	$sql = "SELECT * FROM horario WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio' AND disponivel = 1";
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+		// Horário está disponível, atualiza a disponibilidade
+		$sql = "UPDATE horario SET disponivel = 2 WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio';";
+		mysqli_query($conn, $sql);
+		
+		$consulta = "INSERT INTO consulta (nome, email, cpf, datanascimento,dataconsulta,token) VALUES ('$nome', '$email','$cpf_sem_pontuacao','$datanascimento','$datahora','$token')";
+		mysqli_query($conn, $consulta);
+
+		$_SESSION['msg']="<h2><p style='color: lightgreen;'>Consulta marcada com sucesso</p></h2>";
+
+	} else {
+		// Horário já está ocupado
+		$_SESSION['msg']="<h2><p style='color: lightred;'>Horário já está ocupado. Por favor, selecione outro horário</p></h2>";
+		header("location: agendar.php");
+        exit();
+	  }
+};
 	
-	// Verifica se o numero de digitos informados é igual a 11 
-	if (strlen($cpf) != 11) {
-		$_SESSION['msg']="<h2><p style='color: red;'>CPF INVÁLIDO, DIGITE OS 11 NÚMEROS DO CPF!</p></h2";
-	}
-	// Verifica se nenhuma das sequências invalidas abaixo 
-	// foi digitada. Caso afirmativo, retorna falso
-	else if ($cpf == '00000000000' || 
-		$cpf == '11111111111' || 
-		$cpf == '22222222222' || 
-		$cpf == '33333333333' || 
-		$cpf == '44444444444' || 
-		$cpf == '55555555555' || 
-		$cpf == '66666666666' || 
-		$cpf == '77777777777' || 
-		$cpf == '88888888888' || 
-		$cpf == '99999999999') {
-            $_SESSION['msg']="<h2><p style='color: red;'>CPF INVÁLIDO, DIGITE O CPF CORRETAMENTE!</p></h2";
-	 // Calcula os digitos verificadores para verificar se o
-	 // CPF é válido
-	 } else {   
-$number_quantity_to_loop = [9, 10];
-
-foreach ($number_quantity_to_loop as $item) {
-
-    $sum = 0;
-    $number_to_multiplicate = $item + 1;
-  
-    for ($index = 0; $index < $item; $index++) {
-
-        $sum += $cpf[$index] * ($number_to_multiplicate--);
-  
-    }
-
-    $result = (($sum * 10) % 11);
-
-}
-if ($cpf[$item] != $result) {
-	$_SESSION['msg']="<h2><p style='color: red;'>CPF INVÁLIDO, DIGITE UM CPF VÁLIDO!</p></h2";
-}else{
- $result_cliente = "INSERT INTO consulta(nome, email, cpf, datanascimento) VALUES('$nome','$email','$cpf','$datanascimento');";
-        $resultado = mysqli_query($conn, $result_cliente);
-    
-        if($conn->affected_rows == 1){
-            $_SESSION['msg']="<h2><p style='color: green;'>Consulta Agendada Com Sucesso!</p></h2>";
-			
-        }else{
-            $_SESSION['msg']="<h2><p style='color: red;'>Erro ao Agendar Consulta!</p></h2";
-        }
-        }
-    }
+	//=============================================================================================
+	function validaCPF($cpf) {
+		$cpf = preg_replace('/[^0-9]/', '', $cpf);
+		if (strlen($cpf) != 11) {
+		  return false;
+		}
+		$sum = 0;
+		for ($i = 0; $i < 9; $i++) {
+		  $sum += (int) $cpf[$i] * (10 - $i);
+		}
+		$digit = ($sum % 11) < 2 ? 0 : 11 - ($sum % 11);
+		if ($digit != (int) $cpf[9]) {
+		  return false;
+		}
+		$sum = 0;
+		for ($i = 0; $i < 10; $i++) {
+		  $sum += (int) $cpf[$i] * (11 - $i);
+		}
+		$digit = ($sum % 11) < 2 ? 0 : 11 - ($sum % 11);
+		if ($digit != (int) $cpf[10]) {
+		  return false;
+		}
+		return true;
+	  }
+	//=============================================================================================
+	mysqli_close($conn);
 	header("location: agendar.php");
+	exit();
 ?>

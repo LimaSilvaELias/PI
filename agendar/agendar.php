@@ -71,14 +71,16 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
           <h2>Agende sua Consulta</h2>
         </div>
         <br><br>
-         <form method="POST" action="inserir_agendamento.php" name="">
+         <center>
          <?php 
          if(isset($_SESSION['msg'])){
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
          }   
          ?>
-        <form method="POST" action="agendar.php" name="agendamento">
+         </center>
+         <form method="POST" action="inserir_agendamento.php" name="">
+        
         <div class="gradeAgendar ">
               <div>
                 Nome: <br>
@@ -89,7 +91,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
               </div>
              <div>
                 CPF:<br>
-                <input class="divdstyle"type="text" name="cpf" maxlength="14" placeholder="000.000.000-00">
+                <input class="divdstyle"type="text" name="cpf" maxlength="14" placeholder="000.000.000-00 " required oninput="this.value = formatarCPF(this.value)">
               <br>
                 Data de Nascimento:<br>
                 <span class="calendar"> <input type="date" id="datanascimento" name="datanascimento" ></span>
@@ -127,52 +129,7 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
           </center>
             <br><br>
           </form>
-        </form>
-
-
-
-
-      <center>
-          
-
-      <?php   
-        // Verifica se o formulário foi enviado
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          // Recupera as informações do formulário
-          $nome = filter_var($_POST['nome'], FILTER_SANITIZE_STRING);
-          $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-          $cpf = filter_var($_POST['cpf'], FILTER_SANITIZE_STRING);
-          $cpf_sem_pontuacao = str_replace(array('.', '-'), '', $cpf);
-          $datanascimento = filter_var($_POST['datanascimento'], FILTER_SANITIZE_STRING);
-
-          $dtconsulta = filter_var($_POST["dtconsulta"], FILTER_SANITIZE_STRING);
-          $hora_inicio = filter_var($_POST["hora_inicio"], FILTER_SANITIZE_STRING);
-          $datahora=$dtconsulta." ".$hora_inicio;
-
-          
-          // Verifica se o horário está disponível
-          $sql = "SELECT * FROM horario WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio' AND disponivel = 1";
-          $result = mysqli_query($conn, $sql);
-          if (mysqli_num_rows($result) > 0) {
-              // Horário está disponível, atualiza a disponibilidade
-              $sql = "UPDATE horario SET disponivel = 2 WHERE dtconsulta = '$dtconsulta' AND hora_inicio = '$hora_inicio';";
-              mysqli_query($conn, $sql);
-              
-              $consulta = "INSERT INTO consulta (nome, email, cpf, datanascimento,dataconsulta,token) VALUES ('$nome', '$email','$cpf_sem_pontuacao','$datanascimento','$datahora','$token')";
-              mysqli_query($conn, $consulta);
-
-              echo "Consulta marcada com sucesso.";
-
-          } else {
-              // Horário já está ocupado
-              echo "Horário já está ocupado. Por favor, selecione outro horário.";
-
-            }
-      }      
-      
-      ?>
-      </center>
-        
+     
       </div>
     </div>
 
@@ -182,6 +139,16 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
   <div class="horizontalDiv"></div>
   <div class="horizontalDiv"></div>
   <iframe src="../footer.html" class="rodape"></iframe>
+
+  <script>
+		function formatarCPF(cpf) {
+			cpf = cpf.replace(/\D/g, ''); // remove todos os caracteres não numéricos
+			cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // insere um ponto após os primeiros 3 dígitos
+			cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // insere outro ponto após os próximos 3 dígitos
+			cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // insere um traço antes dos últimos 2 dígitos
+			return cpf;
+		}
+	</script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>      
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
