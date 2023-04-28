@@ -31,14 +31,40 @@ if (mysqli_num_rows($resultado) > 0) {
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf = $_POST["cpf"];
-    if (preg_match('/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/', $cpf)) {
-        echo "<p>O CPF $cpf é válido.</p>";
+    if (validaCPF($cpf)) {
+		echo "<p>ok.</p>";
     } else {
-        $_SESSION['msg']="<h2><p style='color: red;'>O CPF $cpf é inválido</p></h2";
+        $_SESSION['msg']="<h2><p style='color: lightred;'>O CPF $cpf é inválido</p></h2>";
+		header("location: cad.php");
         exit();
     }
-    
 }
+//=============================================================================================
+function validaCPF($cpf) {
+    $cpf = preg_replace('/[^0-9]/', '', $cpf);
+    if (strlen($cpf) != 11) {
+      return false;
+    }
+    $sum = 0;
+    for ($i = 0; $i < 9; $i++) {
+      $sum += (int) $cpf[$i] * (10 - $i);
+    }
+    $digit = ($sum % 11) < 2 ? 0 : 11 - ($sum % 11);
+    if ($digit != (int) $cpf[9]) {
+      return false;
+    }
+    $sum = 0;
+    for ($i = 0; $i < 10; $i++) {
+      $sum += (int) $cpf[$i] * (11 - $i);
+    }
+    $digit = ($sum % 11) < 2 ? 0 : 11 - ($sum % 11);
+    if ($digit != (int) $cpf[10]) {
+      return false;
+    }
+    return true;
+  }
+//=============================================================================================
+
 $token = hash('sha256',$email);
 
 

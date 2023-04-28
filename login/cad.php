@@ -1,4 +1,4 @@
---<?php
+<?php
 session_start();
 include_once('conexao.php');
 if (isset($_SESSION['token'])){
