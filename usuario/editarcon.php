@@ -56,12 +56,9 @@
                 </div>
                 
                 <br>
-                <button type="submit">Atualizar</button>
+                    <input class="submit" type="submit" name="Atualizar" value="Atualizar">
+                
             </form>
-            <?php
-            
-            
-            ?>
 
         </div>
         <br><br>
@@ -70,5 +67,10 @@
 </div>
 <div class="verticalDiv"></div>
 <iframe src="../footer.html" class="rodape" ></iframe>
-
+<label class="botao hide"><img class="img-fluid" width="100px" src="../Img/list.svg"></label>
+    <iframe name="navmob" class="elemento hide" src="../navegadormob.html" frameborder="0"></iframe>
+    <label class="close hide"><img class="img-fluid" width="50px" src="../Img/arrow-bar-right.svg"></label>
+    <script src="../scripts/animacoes.js"></script>
+    <script src="../scripts/responsividade.js"></script>
 </body>
+    

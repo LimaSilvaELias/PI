@@ -34,7 +34,7 @@
 <br><br>
     <div class="boxUniversal ">
         <div></div>
-        <div class="container-fluid animeup">
+        <div class="animeup">
             <div class="boxUniversal infoperfil">
                 <div class="animeup">
                     <div class="d-flex">
@@ -65,8 +65,8 @@
                 </div>
             </div> 
             <br>
-            <div class='darkgrade consulta'>
-                <div class='d-flex flex-wrap container-fluid'>
+            <div>
+                <div class='d-flex flex-wrap justify-content-center'>
                     <?php 
                     // Query SQL
                         $query = "SELECT * FROM consulta WHERE token='$token'";
@@ -81,7 +81,8 @@
                             $dtconsulta = substr($dthrconsultar, 0, 10);
                             $hora_inicio = substr($dthrconsultar, 10, 18);
 
-                            echo "<div class='darkconsulta'>
+                            echo "<div class='darkgrade m-2'>
+                                    <div class='darkconsulta'>
                                     
                                     Nome: " . $row['nome'] . "<hr>
                                     CPF: " . $row['cpf'] . "<hr>
@@ -92,9 +93,9 @@
                                     <a class='btn btn-info' href='editarcon.php?id=" . $row['codigo'] . "'>Editar</a>
                                     
                                     <a class='btn btn-danger' href='confirm.php?id=" . $row['codigo'] . ". &dataconsulta=" . $row['dataconsulta'] . "'>Cancelar Consulta</a>
-                                    
+
                                     </div>
-                                    
+                                    </div>
                                 ";
                         } 
                         mysqli_close($conn);
@@ -110,8 +111,13 @@
     <div class="horizontalDiv"></div>
 
     <iframe src="../footer.html" class="rodape" ></iframe>
-
+    <label class="botao hide"><img class="img-fluid" width="100px" src="../Img/list.svg"></label>
+    <iframe name="navmob" class="elemento hide" src="../navegadormob.html" frameborder="0"></iframe>
+    <label class="close hide"><img class="img-fluid" width="50px" src="../Img/arrow-bar-right.svg"></label>
+    <script src="../scripts/animacoes.js"></script>
     <script src="../scripts/responsividade.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+    
+
 </html>

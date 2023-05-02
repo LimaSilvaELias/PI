@@ -5,7 +5,6 @@
   animation: animacao 1s ease 0s 1 normal forwards;
   
   height: fit-content;
-  border-radius: 50px;
   
 }
 @keyframes animacao {
@@ -52,6 +51,16 @@ a:hover{
 	100% {
 		opacity: 1;
 		transform: translatey(-25px);
+	}
+}
+/*Animação da navbar mobile*/ 
+.animenav{
+  animation: animenav 1s ease 0s 1 normal forwards;
+}
+@keyframes animenav {
+	0% {
+		opacity: 0;
+		transform: translateX(250px);
 	}
 }
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////// */

@@ -25,8 +25,8 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
 
 <body class="bg">
 
-  <div class="d-flex">
-    <iframe src="../navegador.html" class="navegador"></iframe>
+<div class="d-flex animedown"> 
+  <iframe src="../navegador.html" class="navegador"></iframe>
   </div>
   <div class="boxUniversal">
 
@@ -81,22 +81,22 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
          </center>
          <form method="POST" action="inserir_agendamento.php" name="">
         
-        <div class="gradeAgendar ">
-              <div>
+        <div class="cons gradeAgendar">
+              <div class="w_fit">
                 Nome: <br>
                 <input class="divdstyle" type="text" name="nome" maxlength="30" placeholder="Nome e Sobrenome">
               <br>
                 E-mail:<br>
                 <input class="divdstyle"type="mail" name="email" maxlength="40" placeholder="usuario@email.com">
               </div>
-             <div>
+             <div class="w_fit">
                 CPF:<br>
                 <input class="divdstyle"type="text" name="cpf" maxlength="14" placeholder="000.000.000-00 " required oninput="this.value = formatarCPF(this.value)">
               <br>
                 Data de Nascimento:<br>
                 <span class="calendar"> <input type="date" id="datanascimento" name="datanascimento" ></span>
               </div>
-              <div>
+              <div class="w_fit">
                 <label for="hora_inicio">Horário da Consulta:</label><br>
                 <select class="divdstyle"name="hora_inicio" required>
                   <option value="">Selecione um horário</option>
@@ -139,6 +139,10 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
   <div class="horizontalDiv"></div>
   <div class="horizontalDiv"></div>
   <iframe src="../footer.html" class="rodape"></iframe>
+  
+    <label class="botao hide"><img class="img-fluid" width="100px" src="../Img/list.svg"></label>
+    <iframe name="navmob" class="elemento hide" src="../navegadormob.html" frameborder="0"></iframe>
+    <label class="close hide"><img class="img-fluid" width="50px" src="../Img/arrow-bar-right.svg"></label>
 
   <script>
 		function formatarCPF(cpf) {

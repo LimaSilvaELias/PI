@@ -1,3 +1,24 @@
+$(document).ready(function() {
+  opennav();
+  closenav();
+});
+
+  $('.botao').click(function opennav() {
+    // Adiciona a classe com a animação e abre a nav
+    $('.elemento').removeClass("hide");
+    $('.elemento').addClass('animenav');
+    $('.close').addClass('animenav');
+    $('.close').removeClass("hide");
+  });
+  
+  $('.close').click(function closenav() {
+    // fecha a nav 
+    $('.elemento').removeClass('animenav');
+    $('.elemento').addClass("hide");
+    $('.close').removeClass('animenav');
+    $('.close').addClass("hide");
+  });
+
 
 
 $(document).ready(function () {

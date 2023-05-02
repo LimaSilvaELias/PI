@@ -38,16 +38,18 @@
             <div>
             <h1>Deseja cancelar sua consulta?</h1><br>
             <center>
-            <a class='btn btn-success' href='perfil.php?'>Não Cancelar</a>
             <form method="post" action="deletar.php">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-                <button type="submit" class="btn btn-danger" onclick="<?php           
-                $horario = "UPDATE horario SET disponivel = 1 WHERE dtconsulta = '$diaconsulta' AND hora_inicio = '$hora_inicio';";
-                mysqli_query($conn, $horario); ?>">
-                <a class='btn btn-danger' href='deletar.php?id=<?php echo $id ?>'>Cancelar Consulta</a>
+                <button type="submit" class="btn btn-dark w-50" onclick="<?php           
+                    $horario = "UPDATE horario SET disponivel = 1 WHERE dtconsulta = '$diaconsulta' AND hora_inicio = '$hora_inicio';";
+                    mysqli_query($conn, $horario); ?>">
+                    <a class='btn btn-dark' href='deletar.php?id=<?php echo $id ?>'>Cancelar Consulta</a>
                 </button>
             </form>
+            <hr>    
+            <a class='btn btn-light w-50' href='perfil.php?'>Não Cancelar</a>
+            
+            
 
             </center>
             </div>                      
@@ -61,4 +63,10 @@
 <div class="verticalDiv"></div>
 <iframe src="../footer.html" class="rodape" ></iframe>
 
-</body>
+<label class="botao hide"><img class="img-fluid" width="100px" src="../Img/list.svg"></label>
+    <iframe name="navmob" class="elemento hide" src="../navegadormob.html" frameborder="0"></iframe>
+    <label class="close hide"><img class="img-fluid" width="50px" src="../Img/arrow-bar-right.svg"></label>
+    <script src="../scripts/animacoes.js"></script>
+    <script src="../scripts/responsividade.js"></script></body>
+    
+

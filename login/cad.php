@@ -51,9 +51,9 @@ if (isset($_SESSION['token'])){
                                 <input class="btn btn-outline-light"type="text" id="nome" name="nome" required autofocus><br><br>
                                 <label for="email">Email:</label><br>
                                 <input class="btn btn-outline-light"type="email" id="email" name="email" required><br><br>
-                                <label>CPF:</label><br>
+                                <label for="cpf">CPF:</label><br>
                                 <input class="btn btn-outline-light"type="text"name="cpf" id="cpf" minlength="11" required placeholder="000.000.000-00"><br><br>
-                                <label for="senha">Senha:</label><br>
+                                <label >Senha:</label><br>
                                 <input class="btn btn-outline-light"type="password" id="senha" name="senha" required><br><br>
                                 <input class="btn btn-outline-light"type="submit" value="Cadastrar">
                             
@@ -70,7 +70,7 @@ if (isset($_SESSION['token'])){
                     <h2>Login de Usuários</h2><br>
                     <label for="usuario">E-mail:</label><br>
                     <input class="btn btn-outline-light" type="text" name="email" id="email" required><br><br>
-                    <label for="senha">Senha:</label><br>
+                    <label>Senha:</label><br>
                     <input class="btn btn-outline-light" type="password" name="senha" id="senha" required><br><br>
                     <button class="btn btn-outline-light" type="submit" name="login">Entrar</button><br>
                 </form>
@@ -81,12 +81,14 @@ if (isset($_SESSION['token'])){
         <br>
        <script src="../scripts/responsividade.js"></script>
        <center>
-        <footer><p style="color: #808080;">&copy; Copyritgh 
-            <script>var year=new Date(); document.writeln(+year.getUTCFullYear());</script> - Back-End - SENAC - Curso técnico em Informática</p>]
+        <footer><p style="color: #808080;">
             <iframe src="../footer.html" class="rodape" ></iframe>
         </footer>
         </center>
-        
+        <label class="botao hide"><img class="img-fluid" width="100px" src="../Img/list.svg"></label>
+        <iframe name="navmob" class="elemento hide" src="../navegadormob.html" frameborder="0"></iframe>
+        <label class="close hide"><img class="img-fluid" width="50px" src="../Img/arrow-bar-right.svg"></label>
+
     <script src="../scripts/responsividade.js"></script>
     </body>
     </html>
