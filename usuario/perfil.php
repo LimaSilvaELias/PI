@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/animacoes.css">
     <script src="../jquery-3.6.3.min.js"></script>
 </head>
-<body>
+<body class="bg text-light">
     <div class="d-flex animedown"> 
         <iframe src="../navegador.html" class="navegador" id="meuiframe"></iframe>
     </div>
@@ -35,8 +35,8 @@
     <div class="boxUniversal ">
         <div></div>
         <div class="animeup">
-            <div class="boxUniversal infoperfil">
-                <div class="animeup">
+            <div class="boxUniversal infoperfil bg-dark b_radius20 ">
+                <div class="animeup m-4">
                     <div class="d-flex">
                     <div class="w-2x">
                      <img src="../Img/person-circle.svg" class=" input-outline-dark w-75">
@@ -92,7 +92,7 @@
                                     Data e hora da consulta: <br>" . $row['dataconsulta'] . "<hr>
                                     <a class='btn btn-info' href='editarcon.php?id=" . $row['codigo'] . "'>Editar</a>
                                     
-                                    <a class='btn btn-danger' href='confirm.php?id=" . $row['codigo'] . ". &dataconsulta=" . $row['dataconsulta'] . "'>Cancelar Consulta</a>
+                                    <a class='btn btn-danger ' href='confirm.php?id=" . $row['codigo'] . ". &dataconsulta=" . $row['dataconsulta'] . "'>Cancelar Consulta</a>
 
                                     </div>
                                     </div>

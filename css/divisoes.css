@@ -118,7 +118,7 @@ body{
 } */
 
 .darkgrade{
-    width: 300px;
+    width: 320px;
     background-color: #212121;
     color: rgb(234, 234, 234);
     border-color: #212121;
@@ -187,8 +187,13 @@ body{
 .navfont{
     font-size: larger; 
 }
-
-
+.carfont{
+    font-size: 17px !important; 
+}
+.mr{
+    margin-top: 10px;
+    margin-left: -10px;
+}
 
 /* RESPONSIVIDADE HTML CSS JQUERY*/
 
@@ -311,6 +316,7 @@ body{
     width: 100%;
     object-fit: cover;
     aspect-ratio: 4/4;
+    border-radius: 20px;
   }
   
   .img16_9{
@@ -319,6 +325,13 @@ body{
     aspect-ratio:18/9;
     
   }
-  
-
+  .b_radius10{
+    border-radius: 10px;
+  }
+  .b_radius20{
+    border-radius: 20px;
+  }
+  .b_radius30{
+    border-radius: 30px;
+  }
   

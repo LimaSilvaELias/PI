@@ -36,15 +36,15 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
       <div class="bodydiv">
         <div class="horizontalDiv"></div>
         <div class="card-group container-fluid text-dark">
-          <div class="card animecards">
-            <img src="https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2015/10/formacao_a_medicina_e-_a-_profissao_com_-o_-dom_-de_-salvar_-vidas.jpg" class="card-img-top img16_9" alt="...">
+          <div class="card animecards b_radius20">
+            <img src="https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2015/10/formacao_a_medicina_e-_a-_profissao_com_-o_-dom_-de_-salvar_-vidas.jpg" class="card-img-top img16_9 b_radius20" alt="...">
             <div class="card-body">
               <h5 class="card-title">Agende Sua Consulta</h5>
               <p class="card-text">Preencha os campos para agendar a sua consulta conosco de forma rápida e fácil.</p>
             </div>
           </div>
-          <div class="card animecards">
-            <img src="https://www.medcentersauderio.com.br/images/Blog/clinico-geral.jpg" class="card-img-top img16_9" alt="...">
+          <div class="card animecards b_radius20">
+            <img src="https://www.medcentersauderio.com.br/images/Blog/clinico-geral.jpg" class="card-img-top img16_9 b_radius20" alt="...">
             <div class="card-body">
               <h5 class="card-title">Benefícios</h5>
               <p class="card-text">Agilidade no agendamento de consultas.
@@ -53,8 +53,8 @@ $pontuacao_cpf = substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($c
               </p>
             </div>
           </div>
-          <div class="card animecards">
-            <img src="https://blog.estacio.br/wp-content/uploads/2020/02/medicina.jpg" class="card-img-top img16_9" alt="...">
+          <div class="card animecards b_radius20">
+            <img src="https://blog.estacio.br/wp-content/uploads/2020/02/medicina.jpg" class="card-img-top img16_9 b_radius20" alt="...">
             <div class="card-body">
               <h5 class="card-title">Equipe</h5>
               <p class="card-text">Profissionais atenciosos e 100% qualificados para o seu atendimento!</p>

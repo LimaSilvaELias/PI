@@ -27,23 +27,23 @@ include_once('../login/conexao.php');
          <div class="horizontalDiv"></div>
             <div class="bodydiv">
         <div class="horizontalDiv"></div>
-            <div class="card-group container-fluid  text-dark">
-              <div class="card animecards">
-                <img src="https://th.bing.com/th/id/R.f8eebffa38b9df2f4f0a244758c62f6b?rik=H8N9%2bD3%2f%2bWiPRA&riu=http%3a%2f%2fst2.depositphotos.com%2f1026266%2f11927%2fi%2f450%2fdepositphotos_119279600-stock-photo-business-person-in-doubt-and.jpg&ehk=CZ84yBHtlLYrQ5fjzwlYle8PAmd%2fQag7REdK0m46xW8%3d&risl=&pid=ImgRaw&r=0" class="card-img-top img16_9" alt="...">
+            <div class="card-group container-fluid  text-dark ">
+              <div class="card animecards b_radius20">
+                <img src="https://th.bing.com/th/id/R.f8eebffa38b9df2f4f0a244758c62f6b?rik=H8N9%2bD3%2f%2bWiPRA&riu=http%3a%2f%2fst2.depositphotos.com%2f1026266%2f11927%2fi%2f450%2fdepositphotos_119279600-stock-photo-business-person-in-doubt-and.jpg&ehk=CZ84yBHtlLYrQ5fjzwlYle8PAmd%2fQag7REdK0m46xW8%3d&risl=&pid=ImgRaw&r=0" class="card-img-top img16_9 b_radius20" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Dúvidas</h5>
                   <p class="card-text">Caso tenha alguma duvida, entre em contato enviando sua mensagem abaixo!</p>
                 </div>
               </div>
-              <div class="card animecards">
-                <img src="https://blog.estacio.br/wp-content/uploads/2020/02/medicina.jpg" class="card-img-top img16_9" alt="...">
+              <div class="card animecards b_radius20">
+                <img src="https://blog.estacio.br/wp-content/uploads/2020/02/medicina.jpg" class="card-img-top img16_9 b_radius20" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Equipe</h5>
                   <p class="card-text">Nossa equipe está a sua disposição para solucionar qualquer duvida a respeito da sua consulta, exames etc.</p>
                 </div>
               </div>
-              <div class="card animecards">
-                <img src="https://irp-cdn.multiscreensite.com/9903fca1/dms3rep/multi/Windmill-Windows-Oakley-Buckinghamshire-091.jpg" class="card-img-top img16_9" alt="...">
+              <div class="card animecards b_radius20">
+                <img src="https://irp-cdn.multiscreensite.com/9903fca1/dms3rep/multi/Windmill-Windows-Oakley-Buckinghamshire-091.jpg" class="card-img-top img16_9 b_radius20" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Como Contactar?</h5>
                   <p class="card-text">Preencha os campos abaixo com seu Nome e Email, selecione um tópico do contato e digite a sua duvida na caixa de mensagem.</p>
@@ -54,9 +54,9 @@ include_once('../login/conexao.php');
            </div> 
             
             <br><br><br>
-            <div class="row">
+            <div class="row ">
               <div class="col-sm-6">
-                <div class="card">
+                <div class="card b_radius20">
                 <div class="card-body">
                 <h5 class="card-title">Agendar</h5>
                 <p class="card-text">Clique no botão abaixo!</p>
@@ -65,7 +65,7 @@ include_once('../login/conexao.php');
                 </div>
               </div>
               <div class="col-sm-6">
-                <div class="card">
+                <div class="card b_radius20">
                   <div class="card-body">
                     <h5 class="card-title">Exames</h5>
                     <p class="card-text">Clique no botão abaixo!</p>
@@ -74,6 +74,7 @@ include_once('../login/conexao.php');
                 </div>
               </div>
             </div>
+
             <div class="horizontalDiv"></div>
             <div class="bodydiv">
               <div class="text-center divstyle">
